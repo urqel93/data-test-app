@@ -1,0 +1,34 @@
+@import '~src/assets/variables/colors';
+@import '~src/assets/variables/style-guide';
+
+.item {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid $border;
+  align-items: center;
+  display: flex;
+  box-sizing: border-box;
+  padding: 8px;
+  cursor: pointer;
+  margin: 8px 0;
+
+  &--active {
+    border-bottom: 3px solid $border;
+    background-color: $main-bg;
+  }
+
+  &:hover {
+    background-color: $main-bg;
+    border-bottom: 3px solid $border;
+    transition: 0.2s linear;
+  }
+
+  &__username {
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+    color: $secondary-font;
+    letter-spacing: $letter-spacing;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-xs;
+  }
+}

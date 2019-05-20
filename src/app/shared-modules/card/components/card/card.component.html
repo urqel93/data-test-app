@@ -1,0 +1,18 @@
+<div class="card" [class.card--pointer]="isPointer">
+  <div class="card__header" *ngIf="isHeader">
+    <p class="card__text">{{headerText}}</p>
+  </div>
+  <div class="card__content">
+
+    <div class="card__content-header">
+      <ng-content select="[content-title]"></ng-content>
+    </div>
+
+    <div class="card__content-text">
+      <ng-content select="[content-text]"></ng-content>
+    </div>
+
+    <ng-content></ng-content>
+
+  </div>
+</div>

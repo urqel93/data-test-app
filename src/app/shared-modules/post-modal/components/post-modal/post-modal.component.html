@@ -1,0 +1,20 @@
+<ngx-smart-modal #postModal identifier="postModal">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="post-form">
+      <label>
+        Title:
+        <input class="post-form__label" type="text" formControlName="title">
+      </label>
+
+      <label>
+        Body:
+        <textarea class="post-form__textarea" formControlName="body"></textarea>
+      </label>
+      <div class="post-form__buttons">
+        <button class="post-form__button post-form__button--cancel" (click)="closeModal()">Close</button>
+        <button class="post-form__button" type="submit" [disabled]="!form.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+</ngx-smart-modal>

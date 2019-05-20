@@ -1,0 +1,58 @@
+@import '~src/assets/variables/colors';
+@import '~src/assets/variables/style-guide';
+
+.card {
+  box-shadow: 0 0 4px 0 rgba(172, 172, 172, 0.50);
+  border-radius: 5px;
+  background-color: $card-bg;
+  max-height: 800px;
+  padding: 0;
+  overflow-y: auto;
+  margin: 8px 0;
+
+  &--pointer {
+    cursor: pointer;
+  }
+
+  &__header {
+    background-color: $card-header-bg;
+    height: 40px;
+    border-radius: 5px 5px 0 0;
+    padding: 8px;
+    align-items: center;
+    display: flex;
+    box-sizing: border-box;
+  }
+
+  &__text {
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+    color: $secondary-font;
+    letter-spacing: $letter-spacing;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-xs;
+  }
+
+  &__content {
+    padding: 8px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  &__content-header {
+    text-transform: uppercase;
+    font-size: $font-size;
+    color: $secondary-font;
+    letter-spacing: $letter-spacing;
+    font-weight: $font-weight-bold;
+    line-height: $line-height;
+  }
+
+  &__content-text {
+    font-size: $font-size-sm;
+    color: $secondary-font;
+    letter-spacing: $letter-spacing;
+    line-height: $line-height-xs;
+  }
+
+}

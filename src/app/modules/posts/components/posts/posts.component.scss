@@ -1,0 +1,49 @@
+@import '~src/assets/variables/colors';
+@import '~src/assets/variables/style-guide';
+
+.posts {
+  display: flex;
+
+  &__sidebar {
+    width: 400px;
+    margin-right: 16px;
+    max-height: calc(100vh - 136px);
+    overflow-y: hidden;
+  }
+
+  &__content {
+    width: 100%;
+    margin-left: 16px;
+    overflow-y: auto;
+    height: calc(100vh - 136px);
+    position: relative;
+
+    app-loader {
+      position: absolute;
+      top: 40%;
+      left: calc(50% - 53px);
+    }
+  }
+
+  &__no-posts {
+    color: $card-header-bg;
+    font-size: $font-size;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    font-weight: $font-weight-bold;
+    position: absolute;
+    top: 40%;
+    left: calc(50% - 114px);
+  }
+
+  &__error {
+    color: $error;
+    font-size: $font-size;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    font-weight: $font-weight-bold;
+    position: absolute;
+    top: 40%;
+    left: calc(50% - 166px);
+  }
+}

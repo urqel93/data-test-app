@@ -1,0 +1,57 @@
+<div class="posts">
+
+  <div class="posts__sidebar">
+    <app-card [headerText]="'Users'">
+      <ng-container *ngIf="{
+      users: (users$ | async)
+      } as userData"
+      >
+        <app-item *ngFor="let user of userData.users"
+                  [username]="user.username"
+                  [isSelected]="user.id === userId"
+                  (click)="selectUser(user.id)"></app-item>
+      </ng-container>
+    </app-card>
+  </div>
+  <div class="posts__content">
+    <ng-container
+      *ngIf="{
+      posts: (posts$ | async),
+      isPostsLoading: (isPostsLoading$ | async),
+      isPostsError: (isPostsError$ | async)
+      } as postsData"
+    >
+      <app-loader *ngIf="postsData.isPostsLoading"></app-loader>
+      <div
+        class="posts__no-posts"
+        *ngIf="!postsData.isPostsLoading && !postsData.posts.length && !postsData.isPostsError">
+        Click on user to see his posts
+      </div>
+
+      <div
+        class="posts__error"
+        *ngIf="postsData.isPostsError && !postsData.posts.length">
+        Error with loading user's posts, try again
+      </div>
+
+      <ng-container *ngIf="!postsData.isPostsLoading">
+        <app-card
+          *ngFor="let post of postsData.posts"
+          [isHeader]="false"
+          [isPointer]="true"
+          (click)="openPostModal(post)"
+        >
+          <p content-title>{{post.id}} . {{post.title}} </p>
+          <p content-text>{{post.body}} </p>
+        </app-card>
+      </ng-container>
+
+    </ng-container>
+
+
+  </div>
+</div>
+<app-post-modal
+  [post]="post"
+  (update)="updatePost($event)"
+></app-post-modal>

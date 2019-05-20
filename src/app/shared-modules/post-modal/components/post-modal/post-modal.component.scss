@@ -1,0 +1,40 @@
+@import '~src/assets/variables/colors';
+@import '~src/assets/variables/style-guide';
+
+.post-form {
+
+  &__label {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 400px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__button {
+    background-color: $card-header-bg;
+    border: none;
+    color: $secondary-font;
+    height: 40px;
+    border-radius: 5px;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: $font-size-md;
+    line-height: $line-height-md;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing;
+    cursor: pointer;
+
+    &--cancel {
+      background-color: $main-bg;
+    }
+  }
+}
