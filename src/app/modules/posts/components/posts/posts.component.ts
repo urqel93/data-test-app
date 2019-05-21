@@ -47,8 +47,11 @@ export class PostsComponent implements OnInit {
   }
 
   updatePost(value: Post) {
-    console.log(value);
-    this.store.dispatch(new PostActions.UpdatePostById(value));
+    /* This dispatch action use effect middleware but API don't return changed values */
+    // this.store.dispatch(new PostActions.UpdatePostById(value));
+
+    /* This action change value of post in state using reducer */
+    this.store.dispatch(new PostActions.UpdatePostByIdNoAPI(value));
   }
 
 }

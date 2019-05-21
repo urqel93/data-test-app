@@ -1,4 +1,4 @@
-import {PostsActions, PostsActionsTypes} from './posts.actions';
+import {PostsActions, PostsActionsTypes, UpdatePostByIdNoAPI} from './posts.actions';
 import {Post} from '../../../config/models';
 
 export const posts = 'posts';
@@ -66,6 +66,22 @@ export function postsReducer(state = initialState, action: PostsActions): PostsS
         ...state,
         isLoading: false,
         isError: true,
+      };
+
+    case PostsActionsTypes.UpdatePostByIdNoAPI:
+      const post = (action as UpdatePostByIdNoAPI).post;
+
+      return {
+        ...state,
+        posts: state.posts.map(p =>
+          p.id === post.id ?
+            {
+              ...p,
+              title: post.title,
+              body: post.body
+            } : p),
+        isLoading: false,
+        isError: false,
       };
 
     default:

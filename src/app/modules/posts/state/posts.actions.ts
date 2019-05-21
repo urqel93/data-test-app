@@ -8,6 +8,7 @@ export enum PostsActionsTypes {
   UpdatePostById = '[Post] Update Post',
   UpdatePostByIdSuccess = '[Post / API] Update Post Success',
   UpdatePostByIdFail = '[Post /API] Update Post Fail',
+  UpdatePostByIdNoAPI = '[Post] Update Post No API',
 }
 
 export class GetPostsByUserID implements Action {
@@ -55,10 +56,18 @@ export class UpdatePostByIdFail implements Action {
   }
 }
 
+export class UpdatePostByIdNoAPI implements Action {
+  readonly type = PostsActionsTypes.UpdatePostByIdNoAPI;
+
+  constructor(public post: Post) {
+  }
+}
+
 export type PostsActions =
   | GetPostsByUserID
   | GetPostsByUserIDApiSuccess
   | GetPostsByUserIDApiFail
   | UpdatePostById
   | UpdatePostByIdSuccess
-  | UpdatePostByIdFail;
+  | UpdatePostByIdFail
+  | UpdatePostByIdNoAPI;
