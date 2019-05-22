@@ -6,9 +6,9 @@ import {Observable} from 'rxjs';
 import {Post, User} from '../../../../config/models';
 import {GetUsers} from '../../../../state/user/users.actions';
 import {getPosts, getPostsError, getPostsLoading} from '../../state/posts.selectors';
+import * as PostActions from '../../state/posts.actions';
 import {GetPostsByUserID} from '../../state/posts.actions';
 import {NgxSmartModalService} from 'ngx-smart-modal';
-import * as PostActions from '../../state/posts.actions';
 
 @Component({
   selector: 'app-posts',
@@ -33,7 +33,6 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new GetUsers());
-
   }
 
   selectUser(userId) {

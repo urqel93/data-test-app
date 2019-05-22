@@ -26,8 +26,8 @@ export class PostModalComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.form = new FormGroup({
-      body: new FormControl('', Validators.minLength(2)),
-      title: new FormControl('', Validators.minLength(2)),
+      body: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      title: new FormControl('', [Validators.required, Validators.minLength(2)]),
     });
   }
 
@@ -36,7 +36,6 @@ export class PostModalComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    console.log(this.form.value);
     const post = {
       ...this.post,
       body: this.form.value.body,

@@ -1,12 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {HeaderModule} from '../../shared-modules/header/header.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HeaderModule,
       ],
       declarations: [
         AppComponent
@@ -20,16 +22,14 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'TestApp'`, () => {
+  it(`should have a app-header component`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('TestApp');
+    expect(fixture.nativeElement.querySelector('app-header')).toBeTruthy();
   });
 
-  it('should render title in a h1 tag', () => {
+  it(`should have a router-outlet`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to TestApp!');
+    expect(fixture.nativeElement.querySelector('router-outlet')).toBeTruthy();
   });
+
 });
